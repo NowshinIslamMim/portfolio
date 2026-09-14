@@ -838,35 +838,208 @@ export default function Portfolio() {
         }
 
         @media (max-width: 780px) {
-          .sidebar {
-            width: 64px !important;
-            padding: 16px 8px;
-          }
-
-          .sidebar-link span {
-            display: none;
-          }
-
-          .sidebar-collapse {
-            display: none;
-          }
 
           .main-content {
-            margin-left: 64px !important;
+            margin-left: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-bottom: 82px !important;
+            overflow-x: hidden;
+          }
+
+          .sidebar {
+            width: 100% !important;
+            height: 68px !important;
+            position: fixed !important;
+            top: auto !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            padding: 8px 10px !important;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: center !important;
+            align-items: center !important;
+            overflow: hidden !important;
+            border-right: none !important;
+            border-top: 1px solid ${t.cardBorder} !important;
+            z-index: 9999 !important;
+            box-sizing: border-box !important;
+          }
+
+          .sidebar-avatar { display: none !important; }
+
+          .sidebar > div:not(.sidebar-avatar):not(.sidebar-nav) {
+            display: none !important;
+          }
+
+          .sidebar-nav {
+            width: auto !important;
+            margin-top: 0 !important;
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 5px !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+
+          .sidebar-link {
+            width: 42px !important;
+            height: 42px !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 12px !important;
+            flex-shrink: 0;
+          }
+
+          .sidebar-link span { display: none !important; }
+          .sidebar-collapse { display: none !important; }
+
+          .sidebar-theme-toggle {
+            margin-top: 0 !important;
+            margin-left: 5px !important;
+            flex-shrink: 0 !important;
+          }
+
+          .hero-section {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 48px 20px 40px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            gap: 24px !important;
+            box-sizing: border-box !important;
+          }
+
+          .hero-content {
+            width: 100% !important;
+            max-width: 650px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+
+          .hero-title {
+            font-size: 34px !important;
+            line-height: 1.15 !important;
+            text-align: center !important;
+            word-break: normal !important;
+            overflow-wrap: anywhere !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+
+          .hero-content p {
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center !important;
+            line-height: 1.7 !important;
+          }
+
+          .hero-content .icon-btn {
+            width: 42px !important;
+            height: 42px !important;
+          }
+
+          .main-content section {
+            padding-left: 18px !important;
+            padding-right: 18px !important;
+            box-sizing: border-box !important;
+          }
+
+          .proj-grid, .two-col {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+
+          .card {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            border-radius: 14px !important;
           }
         }
 
         @media (max-width: 640px) {
+
+          .main-content { padding-bottom: 78px !important; }
+
+          .hero-section {
+            padding: 38px 16px 32px !important;
+            gap: 20px !important;
+          }
+
           .hero-title {
-            font-size: 32px !important;
+            font-size: 30px !important;
+            line-height: 1.18 !important;
           }
 
-          .proj-grid {
+          .hero-content p {
+            font-size: 14px !important;
+            line-height: 1.65 !important;
+          }
+
+          .main-content section {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
+          .card {
+            padding: 20px !important;
+            border-radius: 14px !important;
+          }
+
+          .sidebar {
+            height: 64px !important;
+            padding: 7px 8px !important;
+          }
+
+          .sidebar-nav { gap: 3px !important; }
+
+          .sidebar-link {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 11px !important;
+          }
+
+          .sidebar-theme-toggle {
+            width: 40px !important;
+            height: 40px !important;
+          }
+
+          .proj-grid, .two-col {
             grid-template-columns: 1fr !important;
           }
 
-          .two-col {
-            grid-template-columns: 1fr !important;
+          .icon-btn {
+            width: 40px !important;
+            height: 40px !important;
+          }
+        }
+
+        @media (max-width: 390px) {
+
+          .hero-section {
+            padding-left: 14px !important;
+            padding-right: 14px !important;
+          }
+
+          .hero-title { font-size: 27px !important; }
+          .hero-content p { font-size: 13.5px !important; }
+
+          .main-content section {
+            padding-left: 14px !important;
+            padding-right: 14px !important;
+          }
+
+          .sidebar-link,
+          .sidebar-theme-toggle {
+            width: 38px !important;
+            height: 38px !important;
           }
         }
 
@@ -1109,7 +1282,7 @@ export default function Portfolio() {
           </div>
 
 
-          <div>
+          <div className="hero-content">
 
             <span
               className="badge"
