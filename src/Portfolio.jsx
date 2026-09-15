@@ -38,19 +38,16 @@ const EDUCATION = [
     school: "International Islamic University Chittagong (IIUC)",
     degree: "BSc in Computer Science & Engineering",
     period: "Autumn 2022 - Present (4th Year)",
-    logo: `${import.meta.env.BASE_URL}logos/iiuc.png`,
   },
   {
     school: "Chattogram Cantonment Public College",
     degree: "Higher Secondary Certificate — GPA 5.00/5.00",
     period: "2018 - 2019",
-    logo: `${import.meta.env.BASE_URL}logos/ccpc.png`,
   },
   {
     school: "Bangladesh Elementary School",
     degree: "Secondary School Certificate — GPA 5.00/5.00",
     period: "2016 - 2017",
-    logo: `${import.meta.env.BASE_URL}logos/bes.png`,
   },
 ];
 
@@ -312,7 +309,6 @@ export default function Portfolio() {
 
   const [dark, setDark] = useState(true);
 
-  // NEW: sidebar state
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const email = "nowshinislam2905@gmail.com";
@@ -715,18 +711,6 @@ export default function Portfolio() {
         .education-row {
           display: flex;
           align-items: flex-start;
-          gap: 14px;
-        }
-
-        .education-logo {
-          width: 44px;
-          height: 44px;
-          flex: 0 0 44px;
-          border-radius: 10px;
-          object-fit: contain;
-          padding: 4px;
-          background: ${t.cardBg};
-          border: 1px solid ${t.cardBorder};
         }
 
         .education-copy {
@@ -1094,8 +1078,6 @@ export default function Portfolio() {
         }}
       >
 
-        {/* Collapse button */}
-
         <button
           className="sidebar-collapse"
           onClick={() => setSidebarOpen((s) => !s)}
@@ -1110,8 +1092,6 @@ export default function Portfolio() {
           {sidebarOpen ? "‹" : "›"}
         </button>
 
-
-        {/* Avatar */}
 
         <div
           className="sidebar-avatar"
@@ -1134,8 +1114,6 @@ export default function Portfolio() {
           )}
         </div>
 
-
-        {/* Name */}
 
         {sidebarOpen && (
           <>
@@ -1164,8 +1142,6 @@ export default function Portfolio() {
           </>
         )}
 
-
-        {/* Sidebar navigation */}
 
         <nav className="sidebar-nav">
 
@@ -1226,8 +1202,6 @@ export default function Portfolio() {
         </nav>
 
 
-        {/* Theme toggle */}
-
         <button
           className="theme-toggle sidebar-theme-toggle"
           onClick={() => setDark((d) => !d)}
@@ -1256,6 +1230,7 @@ export default function Portfolio() {
         ========================= */}
 
         <section
+          className="hero-section"
           style={{
             maxWidth: 900,
             margin: "0 auto",
@@ -1308,7 +1283,6 @@ export default function Portfolio() {
               }}
             >
               <span className="badge-dot" />
-
               Currently learning Full Stack .Net Development
             </span>
 
@@ -1354,7 +1328,7 @@ export default function Portfolio() {
 
                 <a
                   className="icon-btn"
-                  href="https://github.com/Nowshin-Islam-Mim"
+                  href="https://github.com/NowshinIslamMim"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
@@ -1527,13 +1501,9 @@ export default function Portfolio() {
                 >
 
                   <div className="education-row">
-                    <img
-                      className="education-logo"
-                      src={e.logo}
-                      alt={`${e.school} logo`}
-                    />
 
                     <div className="education-copy">
+
                       <h3
                         style={{
                           fontSize: 16,
@@ -1545,6 +1515,7 @@ export default function Portfolio() {
                         {e.degree}
                       </h3>
 
+
                       <p
                         style={{
                           fontSize: 14,
@@ -1555,6 +1526,7 @@ export default function Portfolio() {
                         {e.school}
                       </p>
 
+
                       <p
                         style={{
                           fontSize: 13,
@@ -1564,7 +1536,9 @@ export default function Portfolio() {
                       >
                         {e.period}
                       </p>
+
                     </div>
+
                   </div>
 
                 </div>
@@ -1846,8 +1820,6 @@ export default function Portfolio() {
               }}
             >
 
-              {/* Skills */}
-
               <div
                 className="card"
                 style={{
@@ -1911,8 +1883,6 @@ export default function Portfolio() {
 
               </div>
 
-
-              {/* Certifications */}
 
               <div
                 className="card"
@@ -2053,7 +2023,7 @@ export default function Portfolio() {
 
                 <a
                   className="icon-btn"
-                  href="https://github.com/Nowshin-Islam-Mim"
+                  href="https://github.com/NowshinIslamMim"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
