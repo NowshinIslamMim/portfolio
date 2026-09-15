@@ -1,21 +1,85 @@
 import { useState, useEffect, useRef } from "react";
 
 const PROJECTS = [
- 
+  {
+    title: "Personal Portfolio Website",
+    desc: "A responsive single-page portfolio built with React and Vite, showcasing projects, skills, education, experience, and contact info.",
+    stack: ["React", "Vite", "JavaScript"],
+    url: "https://github.com/NowshinIslamMim/portfolio",
+  },
+  {
+    title: "Email Phishing Detector (fork)",
+    desc: "Multi-user phishing detection system with IMAP scanning, VirusTotal checks, and a Flask dashboard. Forked and extended from sakara-tasmia's original project.",
+    stack: ["Python", "Flask", "SQLite"],
+    url: "https://github.com/NowshinIslamMim/email-phishing-detector",
+  },
 ];
 
 const SKILLS = [
-  "C",
-  "C++",
-  "Python",
-  "Machine Learning",
-  "HTML",
-  "CSS",
-  "Word",
-  "PowerPoint",
-  "Excel",
-  "UI/UX",
+  {
+    name: "C",
+    abbr: "C",
+    level: "Intermediate",
+    desc: "Comfortable with procedural programming and memory management fundamentals.",
+  },
+  {
+    name: "C++",
+    abbr: "C++",
+    level: "Advanced",
+    desc: "Strong grasp of OOP, STL, and data structures for problem-solving.",
+  },
+  {
+    name: "Python",
+    abbr: "Py",
+    level: "Intermediate",
+    desc: "Used for scripting, data analysis, and machine learning experiments.",
+  },
+  {
+    name: "Machine Learning",
+    abbr: "ML",
+    level: "Intermediate",
+    desc: "Familiar with core ML concepts through hands-on training and coursework.",
+  },
+  {
+    name: "HTML",
+    abbr: "H5",
+    level: "Advanced",
+    desc: "Solid foundation in semantic, structured markup for the web.",
+  },
+  {
+    name: "CSS",
+    abbr: "CSS",
+    level: "Advanced",
+    desc: "Confident building responsive, well-structured layouts and styling.",
+  },
+  {
+    name: "Word",
+    abbr: "W",
+    level: "Advanced",
+    desc: "Skilled in formatting professional documents and reports.",
+  },
+  {
+    name: "PowerPoint",
+    abbr: "PPT",
+    level: "Advanced",
+    desc: "Experienced in building clear, well-organized presentations.",
+  },
+  {
+    name: "Excel",
+    abbr: "XL",
+    level: "Intermediate",
+    desc: "Comfortable with formulas, data organization, and basic analysis.",
+  },
+  {
+    name: "UI/UX",
+    abbr: "UX",
+    level: "Beginner",
+    desc: "Developing an eye for clean, user-friendly interface design.",
+  },
 ];
+
+const SKILLS_SUMMARY =
+  "Grounded in C, C++, and Python, with hands-on exposure to machine learning through a structured training program. Alongside core development skills, comfortable with everyday office and design tools for documentation and presentation work.";
 
 const PASTELS_LIGHT = [
   { bg: "#D9F3EA", fg: "#0E9A78" },
@@ -443,6 +507,29 @@ export default function Portfolio() {
           filter: brightness(1.08);
         }
 
+        .skill-row {
+          display: flex;
+          gap: 14px;
+          align-items: flex-start;
+        }
+
+        .skill-row + .skill-row {
+          margin-top: 20px;
+        }
+
+        .skill-badge {
+          min-width: 44px;
+          height: 44px;
+          padding: 0 6px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          font-size: 13px;
+          flex-shrink: 0;
+        }
+
         .link {
           color: ${t.link};
           text-decoration: none;
@@ -536,7 +623,7 @@ export default function Portfolio() {
         .sidebar-collapse {
           position: absolute;
           top: 20px;
-          right: -14px;
+          right: 10px;
           width: 28px;
           height: 28px;
           border-radius: 50%;
@@ -1296,7 +1383,7 @@ export default function Portfolio() {
                 color: t.text,
               }}
             >
-              AssalamuAlaikum, I'm {name}
+              Hi! I'm {name}
             </h1>
 
 
@@ -1851,13 +1938,18 @@ export default function Portfolio() {
                 </h2>
 
 
-                <div
+                <p
                   style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: 10,
+                    fontSize: 14,
+                    lineHeight: 1.7,
+                    color: t.muted,
+                    margin: "0 0 20px",
                   }}
                 >
+                  {SKILLS_SUMMARY}
+                </p>
+
+                <div>
 
                   {SKILLS.map((s, i) => {
 
@@ -1865,16 +1957,57 @@ export default function Portfolio() {
                       t.pills[i % t.pills.length];
 
                     return (
-                      <span
-                        key={s}
-                        className="pill"
-                        style={{
-                          background: c.bg,
-                          color: c.fg,
-                        }}
+                      <div
+                        key={s.name}
+                        className="skill-row"
                       >
-                        {s}
-                      </span>
+
+                        <span
+                          className="skill-badge"
+                          style={{
+                            background: c.bg,
+                            color: c.fg,
+                          }}
+                        >
+                          {s.abbr}
+                        </span>
+
+                        <div>
+
+                          <div
+                            style={{
+                              fontSize: 15,
+                              fontWeight: 700,
+                              color: t.text,
+                            }}
+                          >
+                            {s.name}
+                            {" "}
+                            <span
+                              style={{
+                                fontWeight: 500,
+                                fontSize: 13,
+                                color: t.mutedLight,
+                              }}
+                            >
+                              - {s.level}
+                            </span>
+                          </div>
+
+                          <div
+                            style={{
+                              fontSize: 13.5,
+                              lineHeight: 1.6,
+                              color: t.muted,
+                              marginTop: 2,
+                            }}
+                          >
+                            {s.desc}
+                          </div>
+
+                        </div>
+
+                      </div>
                     );
 
                   })}
