@@ -38,16 +38,19 @@ const EDUCATION = [
     school: "International Islamic University Chittagong (IIUC)",
     degree: "BSc in Computer Science & Engineering",
     period: "Autumn 2022 - Present (4th Year)",
+    logo: `${import.meta.env.BASE_URL}logos/iiuc.png`,
   },
   {
     school: "Chattogram Cantonment Public College",
     degree: "Higher Secondary Certificate — GPA 5.00/5.00",
     period: "2018 - 2019",
+    logo: `${import.meta.env.BASE_URL}logos/ccpc.png`,
   },
   {
     school: "Bangladesh Elementary School",
     degree: "Secondary School Certificate — GPA 5.00/5.00",
     period: "2016 - 2017",
+    logo: `${import.meta.env.BASE_URL}logos/bes.png`,
   },
 ];
 
@@ -709,6 +712,27 @@ export default function Portfolio() {
           position: relative;
         }
 
+        .education-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+        }
+
+        .education-logo {
+          width: 44px;
+          height: 44px;
+          flex: 0 0 44px;
+          border-radius: 10px;
+          object-fit: contain;
+          padding: 4px;
+          background: ${t.cardBg};
+          border: 1px solid ${t.cardBorder};
+        }
+
+        .education-copy {
+          min-width: 0;
+        }
+
         .timeline-item:last-child {
           padding-bottom: 0;
         }
@@ -788,16 +812,9 @@ export default function Portfolio() {
           animation: pop 0.8s ease-out forwards;
         }
 
-        .confetti-sp:nth-child(1) {
-          animation-delay: 0s;
-        }
-
-        .confetti-sp:nth-child(2) {
-          animation-delay: 0.05s;
-        }
-
-        .confetti-sp:nth-child(3) {
-          animation-delay: 0.1s;
+        .confetti-sp {
+          color: #ffffff;
+          text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
         }
 
         @keyframes pop {
@@ -1509,38 +1526,46 @@ export default function Portfolio() {
                   className="timeline-item"
                 >
 
-                  <h3
-                    style={{
-                      fontSize: 16,
-                      fontWeight: 700,
-                      margin: "0 0 3px",
-                      color: t.text,
-                    }}
-                  >
-                    {e.degree}
-                  </h3>
+                  <div className="education-row">
+                    <img
+                      className="education-logo"
+                      src={e.logo}
+                      alt={`${e.school} logo`}
+                    />
 
+                    <div className="education-copy">
+                      <h3
+                        style={{
+                          fontSize: 16,
+                          fontWeight: 700,
+                          margin: "0 0 3px",
+                          color: t.text,
+                        }}
+                      >
+                        {e.degree}
+                      </h3>
 
-                  <p
-                    style={{
-                      fontSize: 14,
-                      color: t.muted,
-                      margin: "0 0 3px",
-                    }}
-                  >
-                    {e.school}
-                  </p>
+                      <p
+                        style={{
+                          fontSize: 14,
+                          color: t.muted,
+                          margin: "0 0 3px",
+                        }}
+                      >
+                        {e.school}
+                      </p>
 
-
-                  <p
-                    style={{
-                      fontSize: 13,
-                      color: t.mutedLight,
-                      margin: 0,
-                    }}
-                  >
-                    {e.period}
-                  </p>
+                      <p
+                        style={{
+                          fontSize: 13,
+                          color: t.mutedLight,
+                          margin: 0,
+                        }}
+                      >
+                        {e.period}
+                      </p>
+                    </div>
+                  </div>
 
                 </div>
 
@@ -2071,23 +2096,9 @@ export default function Portfolio() {
 
                   <span
                     className="confetti-sp"
-                    style={{ "--dx": "-24px" }}
-                  >
-                    ✨
-                  </span>
-
-                  <span
-                    className="confetti-sp"
                     style={{ "--dx": "0px" }}
                   >
-                    💚
-                  </span>
-
-                  <span
-                    className="confetti-sp"
-                    style={{ "--dx": "24px" }}
-                  >
-                    ✨
+                    ✦
                   </span>
 
                 </button>
